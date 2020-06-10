@@ -21,13 +21,13 @@ namespace UnitTest
         public void Sum_Perimeters()
         {
             var rectangles = Shapes;
-                
+
             double result = PerimeterOperations.Sum(rectangles);
 
             Assert.AreEqual(expectedPerimeter, result);
         }
 
-        private List<object> Shapes => new List<object> {
+        private List<IGeometricShape> Shapes => new List<IGeometricShape> {
             new Rectangle { Width = 3, Height = 4 },
             new Rectangle { Width = 4, Height = 5 },
             new Rectangle { Width = 5, Height = 6 },
