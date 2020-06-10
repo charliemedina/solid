@@ -4,9 +4,17 @@ using System.Linq;
 
 namespace SOLID
 {
-    public interface IGeometricShape
+    public interface IGeometricShape : IHasArea, IHasPerimeter
+    {
+    }
+
+    public interface IHasArea
     {
         double Area();
+    }
+
+    public interface IHasPerimeter
+    {
         double Perimeter();
     }
 
@@ -43,7 +51,7 @@ namespace SOLID
         }
     }
 
-    public class Square : IGeometricShape 
+    public class Square : IGeometricShape
     {
         public double Sides { get; } = 4;
         public double SideLength { get; set; }
@@ -61,7 +69,7 @@ namespace SOLID
 
     public class AreaOperations
     {
-        public static double Sum(IEnumerable<IGeometricShape> shapes)
+        public static double Sum(IEnumerable<IHasArea> shapes)
         {
             return shapes.Sum(s => s.Area());
         }
@@ -69,7 +77,7 @@ namespace SOLID
 
     public class PerimeterOperations
     {
-        public static double Sum(IEnumerable<IGeometricShape> shapes)
+        public static double Sum(IEnumerable<IHasPerimeter> shapes)
         {
             return shapes.Sum(s => s.Perimeter());
         }
