@@ -8,15 +8,21 @@ namespace SOLID
         public double Sides { get; } = 4;
         public double Height { get; set; }
         public double Width { get; set; }
+    }
 
-        public static double SumAreas(IEnumerable<Rectangle> rectangles)
+    public class AreaOperations
+    {
+        public static double Sum(IEnumerable<Rectangle> rectangles)
         {
             return rectangles.Sum(r => r.Height * r.Width);
         }
+    }
 
-        public static double SumPerimeters(IEnumerable<Rectangle> rectangles)
+    public class PerimeterOperations
+    {
+        public static double Sum(IEnumerable<Rectangle> rectangles)
         {
-            return rectangles.Sum(r => 2* r.Height + 2 * r.Width);
+            return rectangles.Sum(r => 2 * r.Height + 2 * r.Width);
         }
     }
 }

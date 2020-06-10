@@ -12,7 +12,7 @@ namespace UnitTest
         {
             var rectangles = Rectangles;
 
-            double result = Rectangle.SumAreas(rectangles);
+            double result = AreaOperations.Sum(rectangles);
 
             Assert.IsTrue(result == totalAreas);
         }
@@ -22,7 +22,7 @@ namespace UnitTest
         {
             var rectangles = Rectangles;
 
-            double result = Rectangle.SumPerimeters(rectangles);
+            double result = PerimeterOperations.Sum(rectangles);
 
             Assert.IsTrue(result == totalPerimeters);
         }
