@@ -6,7 +6,15 @@ namespace SOLID
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            #region Shapes
+
+            var calculator = new ShapesCalculator();
+            calculator.Calculate();
+            Console.WriteLine($"Total area: {calculator.TotalAreas} \n" +
+                              $"Total perimeter: {calculator.TotalPerimeters}");
+            Console.ReadKey();
+
+            #endregion
         }
     }
 }

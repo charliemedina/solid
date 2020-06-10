@@ -51,13 +51,15 @@ namespace UnitTest
             Assert.AreEqual(expected, actual);
         }
 
-        private List<IGeometricShape> Shapes => new List<IGeometricShape> {
+        private IEnumerable<IGeometricShape> Shapes => new IGeometricShape[] {
             new Rectangle { Width = 3, Height = 4 },
             new Rectangle { Width = 4, Height = 5 },
             new Rectangle { Width = 5, Height = 6 },
             new EquilateralTriangle { SideLenght = 3 }
         };
 
+        private readonly AreaOperations AreaOperations = new AreaOperations();
+        private readonly PerimeterOperations PerimeterOperations = new PerimeterOperations();
         private readonly double expectedArea = 65.89711431702997;
         private readonly double expectedPerimeter = 63;
     }

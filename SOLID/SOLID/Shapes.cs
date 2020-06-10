@@ -21,8 +21,8 @@ namespace SOLID
     public class Rectangle : IGeometricShape
     {
         public int Sides { get; } = 4;
-        public virtual double Height { get; set; }
-        public virtual double Width { get; set; }
+        public double Height { get; set; }
+        public double Width { get; set; }
 
         public double Area()
         {
@@ -69,7 +69,7 @@ namespace SOLID
 
     public class AreaOperations
     {
-        public static double Sum(IEnumerable<IHasArea> shapes)
+        public double Sum(IEnumerable<IHasArea> shapes)
         {
             return shapes.Sum(s => s.Area());
         }
@@ -77,7 +77,7 @@ namespace SOLID
 
     public class PerimeterOperations
     {
-        public static double Sum(IEnumerable<IHasPerimeter> shapes)
+        public double Sum(IEnumerable<IHasPerimeter> shapes)
         {
             return shapes.Sum(s => s.Perimeter());
         }
