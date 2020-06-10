@@ -28,16 +28,27 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void LSP_Test()
+        public void LSP_Square()
         {
-            Rectangle rectangle = new Square();
-            rectangle.Height = 6;
-            rectangle.Width = 3;
+            var square = new Square { SideLength = 4 };
 
-            double expected = 18;
-            double actual = rectangle.Area();
+            var actualArea = square.Area();
+            var actualPerimeter = square.Perimeter();
+            var expected = 16;
 
-            Assert.AreNotEqual(expected, actual);
+            Assert.AreEqual(expected, actualArea);
+            Assert.AreEqual(expected, actualPerimeter);
+        }
+
+        [TestMethod]
+        public void LSP_Square_Perimeter()
+        {
+            var square = new Square { SideLength = 4 };
+
+            var actual = square.Perimeter();
+            var expected = 16;
+
+            Assert.AreEqual(expected, actual);
         }
 
         private List<IGeometricShape> Shapes => new List<IGeometricShape> {

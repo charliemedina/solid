@@ -43,6 +43,22 @@ namespace SOLID
         }
     }
 
+    public class Square : IGeometricShape 
+    {
+        public double Sides { get; } = 4;
+        public double SideLength { get; set; }
+
+        public double Area()
+        {
+            return Math.Pow(SideLength, 2);
+        }
+
+        public double Perimeter()
+        {
+            return 4 * SideLength;
+        }
+    }
+
     public class AreaOperations
     {
         public static double Sum(IEnumerable<IGeometricShape> shapes)
@@ -56,33 +72,6 @@ namespace SOLID
         public static double Sum(IEnumerable<IGeometricShape> shapes)
         {
             return shapes.Sum(s => s.Perimeter());
-        }
-    }
-
-    public class Square : Rectangle
-    {
-        private double _height;
-        private double _width;
-
-        public override double Height
-        {
-            get { return _height; }
-            set
-            {
-                _height = value;
-                _width = value;
-            }
-        }
-
-        public override double Width
-        {
-            get { return _width; }
-            set
-            {
-                _width = value;
-                _height = value;
-
-            }
         }
     }
 }
