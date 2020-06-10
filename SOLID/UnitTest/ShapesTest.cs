@@ -12,9 +12,9 @@ namespace UnitTest
         {
             var rectangles = Shapes;
 
-            double result = AreaOperations.Sum(rectangles);
+            double actual = AreaOperations.Sum(rectangles);
 
-            Assert.AreEqual(expectedArea, result);
+            Assert.AreEqual(expectedArea, actual);
         }
 
         [TestMethod]
@@ -22,9 +22,22 @@ namespace UnitTest
         {
             var rectangles = Shapes;
 
-            double result = PerimeterOperations.Sum(rectangles);
+            double actual = PerimeterOperations.Sum(rectangles);
 
-            Assert.AreEqual(expectedPerimeter, result);
+            Assert.AreEqual(expectedPerimeter, actual);
+        }
+
+        [TestMethod]
+        public void LSP_Test()
+        {
+            Rectangle rectangle = new Square();
+            rectangle.Height = 6;
+            rectangle.Width = 3;
+
+            double expected = 18;
+            double actual = rectangle.Area();
+
+            Assert.AreNotEqual(expected, actual);
         }
 
         private List<IGeometricShape> Shapes => new List<IGeometricShape> {
